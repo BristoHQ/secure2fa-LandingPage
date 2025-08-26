@@ -401,7 +401,7 @@
           Secure2FA
         </span>
       </div>
-     <nav
+      <nav
         class="navbar hidden md:flex space-x-6 items-center text-gray-300 text-xs sm:text-sm"
       >
         <div class="message" id="message-0">
@@ -417,7 +417,6 @@
         <div class="message" id="message-3">
           Experience the future of authentication.
         </div>
-
       </nav>
       <div class="flex items-center space-x-2 text-xs sm:text-sm">
         <!-- <button
@@ -768,16 +767,36 @@
           <a class="hover:text-white" href="#">Blog</a>
         </nav>
         <div class="flex space-x-6 text-gray-400 text-lg justify-center">
-          <a aria-label="Instagram" class="hover:text-white" href="#"
+          <a
+            aria-label="Instagram"
+            class="hover:text-white"
+            href="https://www.instagram.com/bristohq/"
+            target="_blank"
+            rel="noopener noreferrer"
             ><i class="fab fa-instagram"></i
           ></a>
-          <a aria-label="Twitter" class="hover:text-white" href="#"
+          <a
+            aria-label="Twitter"
+            class="hover:text-white"
+            href="https://x.com/bristohq"
+            target="_blank"
+            rel="noopener noreferrer"
             ><i class="fab fa-twitter"></i
           ></a>
-          <a aria-label="LinkedIn" class="hover:text-white" href="#"
+          <a
+            aria-label="LinkedIn"
+            class="hover:text-white"
+            href="https://www.linkedin.com/company/bristohq"
+            target="_blank"
+            rel="noopener noreferrer"
             ><i class="fab fa-linkedin-in"></i
           ></a>
-          <a aria-label="GitHub" class="hover:text-white" href="#"
+          <a
+            aria-label="GitHub"
+            class="hover:text-white"
+            href="https://github.com/bristohq"
+            target="_blank"
+            rel="noopener noreferrer"
             ><i class="fab fa-github"></i
           ></a>
         </div>
@@ -788,7 +807,6 @@
     </footer>
 
     <script>
-      // Smooth scroll for navigation
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -799,7 +817,6 @@
         });
       });
 
-      // Dynamic header background on scroll
       window.addEventListener("scroll", () => {
         const header = document.querySelector("header");
         if (window.scrollY > 100) {
@@ -811,7 +828,6 @@
         }
       });
 
-      // Pricing message toggle
       document.querySelectorAll(".show-pricing-message").forEach((button) => {
         button.addEventListener("click", () => {
           document.getElementById("pricingMessage").classList.add("show");
@@ -824,7 +840,6 @@
           document.getElementById("pricingMessage").classList.remove("show");
         });
 
-      // Fetch and display donators
       fetch("./data/data.json")
         .then((response) => response.json())
         .then((data) => {
@@ -832,12 +847,10 @@
           const row1 = document.getElementById("donatorRow1");
           const row2 = document.getElementById("donatorRow2");
 
-          // Split donators into two rows
           const half = Math.ceil(donators.length / 2);
           const firstRowDonators = donators.slice(0, half);
           const secondRowDonators = donators.slice(half);
 
-          // Function to create donator card
           const createDonatorCard = (donator) => `
             <div class="donator-card p-6">
               <div class="donator-content">
