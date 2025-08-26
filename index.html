@@ -1,0 +1,872 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Secure2FA - Two-Factor Authentication for Enhanced Security</title>
+    <meta
+      name="description"
+      content="Secure2FA provides robust two-factor authentication to protect your accounts with advanced encryption, multi-token support, and cross-platform compatibility. Start for free today!"
+    />
+    <meta
+      name="keywords"
+      content="two-factor authentication, 2FA, Secure2FA, account security, encryption, multi-token, QR code, cross-platform, cybersecurity"
+    />
+    <meta name="author" content="bristoHQ India, Inc." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.secure2fa.com/" />
+    <!-- Open Graph Tags -->
+    <meta
+      property="og:title"
+      content="Secure2FA - Secure Your Accounts with 2FA"
+    />
+    <meta
+      property="og:description"
+      content="Enhance your account security with Secure2FA's advanced two-factor authentication solutions. Free to use, with optional donations to support our mission."
+    />
+    <meta
+      property="og:image"
+      content="https://storage.googleapis.com/a1aa/image/secure2fa-logo.png"
+    />
+    <meta property="og:url" content="https://www.secure2fa.com/" />
+    <meta property="og:type" content="website" />
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Secure2FA - Two-Factor Authentication"
+    />
+    <meta
+      name="twitter:description"
+      content="Protect your accounts with Secure2FA's free, secure 2FA solution featuring encryption and cross-platform support."
+    />
+    <meta
+      name="twitter:image"
+      content="https://storage.googleapis.com/a1aa/image/secure2fa-logo.png"
+    />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/safety-icon.webp" />
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #0a0a0a;
+        color: #e5e7eb;
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            rgba(34, 197, 94, 0.1) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.3;
+      }
+
+      header,
+      main {
+        position: relative;
+        z-index: 1;
+      }
+
+      footer {
+        backdrop-filter: blur(20px);
+      }
+
+      header {
+        backdrop-filter: blur(20px);
+        background: rgba(10, 10, 10, 0.8);
+        border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+      }
+
+      .logo-img {
+        width: 23px;
+        height: 23px;
+        object-fit: contain;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        position: relative;
+        overflow: hidden;
+        font-weight: 600;
+        border-radius: 0.5rem;
+      }
+
+      .btn-primary {
+        background: #22c55e;
+        color: #000;
+      }
+
+      .btn-outline {
+        border: 1.5px solid #374151;
+        background: transparent;
+        color: #e5e7eb;
+        font-weight: 500;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.1;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+      }
+
+      .hero-subtitle {
+        font-size: 1.125rem;
+        color: #9ca3af;
+        max-width: 36rem;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      .dashboard-preview {
+        position: relative;
+        display: inline-block;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        background: #1a1a1a;
+        padding: 8px;
+        border: 2px solid #374151;
+        box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.4);
+      }
+
+      .dashboard-preview img {
+        border-radius: 1rem;
+        border: 1px solid #504f4f;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        color: #000;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border-radius: 2rem;
+        letter-spacing: 0.025em;
+      }
+
+      .feature-card {
+        border-radius: 1.25rem;
+        border: 1px solid #374151;
+        background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+        min-width: 280px;
+        max-width: 320px;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card:hover {
+        border-color: #6b7280;
+      }
+
+      .feature-card .icon-bg {
+        background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        border-radius: 1rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        margin-bottom: 1.5rem;
+      }
+
+      .pricing-card {
+        border-radius: 1.5rem;
+        border: 1px solid #374151;
+        background: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .donator-card {
+        border-radius: 1.25rem;
+        border: 1px solid #374151;
+        background: linear-gradient(145deg, #1f1f1f 0%, #141414 100%);
+        min-width: 340px;
+        max-width: 420px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .donator-card:hover {
+        border-color: #6b7280;
+      }
+
+      .donator-content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+        width: 100%;
+      }
+
+      .donator-quote {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .donator-buttons {
+        display: flex;
+        gap: 0.75rem;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        height: 40px;
+      }
+
+      .donator-buttons button {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .avatar {
+        border-radius: 1rem;
+        border: 2px solid #22c55e;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+      }
+
+      .scroll-container {
+        overflow: hidden;
+        width: 100vw;
+        margin: 2rem 0;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        max-width: 100vw;
+        z-index: 2;
+      }
+
+      .scroll-row {
+        display: flex;
+        gap: 2rem;
+        animation-duration: 30s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        will-change: transform;
+        width: max-content;
+      }
+
+      .scroll-left {
+        animation-name: scrollLeft;
+      }
+
+      .scroll-right {
+        animation-name: scrollRight;
+      }
+
+      @keyframes scrollLeft {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes scrollRight {
+        from {
+          transform: translateX(-50%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      .pricing-message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #1a1a1a;
+        border: 1px solid #374151;
+        border-radius: 1rem;
+        padding: 2rem;
+        max-width: 400px;
+        text-align: center;
+        z-index: 1000;
+      }
+
+      .pricing-message.show {
+        display: block;
+      }
+
+      .pricing-message p {
+        color: #e5e7eb;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .pricing-message button {
+        background: #22c55e;
+        color: #000;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .gradient-text {
+        background: linear-gradient(45deg, #22c55e, #16a34a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-title {
+        letter-spacing: -0.02em;
+        font-weight: 700;
+      }
+
+      @media (max-width: 900px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .feature-card,
+        .donator-card,
+        .pricing-card {
+          border-radius: 1rem;
+        }
+        .dashboard-preview {
+          border-radius: 1rem;
+        }
+        .pricing-message {
+          max-width: 90%;
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="w-full px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm text-gray-300 fixed top-0 bg-[#0a0a0a] border-b border-gray-800 z-50 shadow-lg"
+    >
+      <div class="flex items-center space-x-2">
+        <img
+          src="./assets/safety-icon.webp"
+          alt="Secure2FA Logo"
+          class="logo-img"
+        />
+
+        <span class="font-semibold text-gray-100 text-base tracking-wide">
+          Secure2FA
+        </span>
+      </div>
+      <nav
+        class="hidden md:flex space-x-6 items-center text-gray-300 text-xs sm:text-sm"
+      >
+        <div class="relative group cursor-pointer">
+          <span> Pricing </span>
+          <i class="fas fa-chevron-down ml-1 text-gray-300 text-[8px]"></i>
+        </div>
+        <a class="hover:text-white" href="#"> Contact Us </a>
+        <a class="hover:text-white" href="#"> About Us </a>
+      </nav>
+      <div class="flex items-center space-x-2 text-xs sm:text-sm">
+        <button
+          aria-label="Dark mode toggle"
+          class="btn-outline rounded px-3 py-1"
+        >
+          <i class="fas fa-moon"></i> Theme
+        </button>
+        <button aria-label="Login" class="btn-outline rounded px-3 py-1">
+          Login
+        </button>
+        <button
+          aria-label="Start for free"
+          class="btn-primary bg-green-500 text-black rounded px-3 py-1 font-semibold"
+        >
+          Start for free
+        </button>
+      </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <section class="text-center mt-16 sm:mt-24 px-2 sm:px-0">
+        <h1
+          class="hero-title font-roboto text-gray-100 leading-tight max-w-5xl mx-auto section-title"
+        >
+          2FA Authenticator to<br />
+          <span class="text-green-500 gradient-text">secure</span> your account
+        </h1>
+        <p class="hero-subtitle mt-6">
+          A modern AI workspace with tools designed to save time, reduce effort,
+          and keep your workflow smooth
+        </p>
+        <button
+          aria-label="Get started"
+          class="mt-10 btn-primary bg-green-500 text-black text-base rounded-lg px-8 py-3 font-semibold inline-flex items-center mx-auto shadow-lg"
+        >
+          Get started
+          <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+      </section>
+
+      <section class="mt-16 sm:mt-20 px-2 sm:px-0 flex justify-center">
+        <div class="dashboard-preview">
+          <img
+            alt="Screenshot of Secure2FA dashboard showing user interface with multiple 2FA tokens and navigation sidebar"
+            class="mx-auto"
+            height="300"
+            src="./dashboard.png"
+            width="900"
+          />
+        </div>
+      </section>
+
+      <section class="mt-20 sm:mt-28 text-center px-2 sm:px-0">
+        <div class="max-w-6xl mx-auto">
+          <div class="badge mb-6">Why Us</div>
+          <h2
+            class="text-4xl sm:text-5xl font-roboto font-bold text-gray-100 max-w-4xl mx-auto leading-tight section-title"
+          >
+            What makes us better
+          </h2>
+          <p class="hero-subtitle mt-4">
+            We don't just build tools — we build better workflows
+          </p>
+        </div>
+
+        <div class="scroll-container">
+          <div class="scroll-row scroll-right">
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-lock text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                C2S &amp; S2B Encryption
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Provide a client to server encryption and similarly server to
+                database encryption
+              </p>
+            </div>
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-users text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                Multi-Token support
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Supports managing multiple 2FA token for a single user.
+              </p>
+            </div>
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-qrcode text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                QR Code Integration
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Easy to setup token with scannable QR codes.
+              </p>
+            </div>
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-mobile-alt text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                No download required
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Available through web, so no need to download any Software.
+              </p>
+            </div>
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-lock text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                C2S &amp; S2B Encryption
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Provide a client to server encryption and similarly server to
+                database encryption
+              </p>
+            </div>
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-users text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                Multi-Token support
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Supports managing multiple 2FA token for a single user.
+              </p>
+            </div>
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-qrcode text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                QR Code Integration
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Easy to setup token with scannable QR codes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-container">
+          <div class="scroll-row scroll-left">
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-shield-alt text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                PIN Verification
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Adds an extra layer of security by requiring users to enter a
+                personal PIN during sensitive actions.
+              </p>
+            </div>
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-file-alt text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                EL-Protocol File
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Allows users to regain access by uploading a secure .elp file
+                generated during setup.
+              </p>
+            </div>
+
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-palette text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                Custom Themes
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Personalize your experience with multiple theme options.
+              </p>
+            </div>
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-shield-alt text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                PIN Verification
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Adds an extra layer of security by requiring users to enter a
+                personal PIN during sensitive actions.
+              </p>
+            </div>
+            <div class="feature-card p-8 text-center">
+              <div class="icon-bg mx-auto">
+                <i class="fas fa-file-alt text-white text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-gray-100 text-lg mb-3">
+                EL-Protocol File
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Allows users to regain access by uploading a secure .elp file
+                generated during setup.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-20 sm:mt-28 text-center px-2 sm:px-0">
+        <div class="max-w-7xl mx-auto">
+          <div class="badge mb-6">Pricing</div>
+          <h2
+            class="text-4xl sm:text-5xl font-roboto font-bold text-gray-100 max-w-4xl mx-auto leading-tight section-title"
+          >
+            Simple pricing, no hidden charges
+          </h2>
+          <p class="hero-subtitle mt-4">
+            We don't just build tools — we build better workflows
+          </p>
+          <div
+            class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
+          >
+            <div class="pricing-card p-10 text-left">
+              <p class="text-green-500 text-base font-semibold mb-2">Pro</p>
+              <p class="text-gray-400 text-sm mb-4">Perfect for All</p>
+              <p class="text-gray-100 text-3xl font-bold mb-6">
+                ₹0
+                <span class="text-gray-400 text-lg font-normal">/ month</span>
+              </p>
+              <button
+                class="btn-outline text-sm rounded-lg px-4 py-2 mb-6 show-pricing-message"
+              >
+                Features
+              </button>
+              <ul class="text-base text-green-500 space-y-2 mb-8">
+                <li>
+                  <i class="fas fa-check-circle mr-3"></i>ALL Features Of
+                  Secure2FA
+                </li>
+                <li>
+                  <i class="fas fa-check-circle mr-3"></i>ALL Future Features
+                </li>
+              </ul>
+              <button
+                class="btn-primary bg-green-500 text-black text-base font-semibold rounded-lg px-6 py-3 w-full"
+              >
+                Get Start For Free!
+              </button>
+            </div>
+            <div class="pricing-card p-10 text-left">
+              <p class="text-green-500 text-base font-semibold mb-2">
+                Donation Pro Max
+              </p>
+              <p class="text-gray-400 text-sm mb-4">Perfect for Donators</p>
+              <p class="text-gray-100 text-3xl font-bold mb-6">
+                ₹99
+                <span class="text-gray-400 text-lg font-normal"
+                  >/ your choice</span
+                >
+              </p>
+              <button
+                class="btn-outline text-sm rounded-lg px-4 py-2 mb-6 show-pricing-message"
+              >
+                Features
+              </button>
+              <ul class="text-base text-green-500 space-y-2 mb-8">
+                <li>
+                  <i class="fas fa-check-circle mr-3"></i>ALL Features Of
+                  Secure2FA
+                </li>
+                <li>
+                  <i class="fas fa-check-circle mr-3"></i>Shout out in our
+                  website
+                </li>
+              </ul>
+              <button
+                class="btn-primary bg-green-500 text-black text-base font-semibold rounded-lg px-6 py-3 w-full"
+              >
+                Donate Us!
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-message" id="pricingMessage">
+          <p>
+            Secure2FA is completely free to use with all features included! No
+            payment is required, but if you love our service, consider
+            supporting us with a donation.
+          </p>
+          <button id="closePricingMessage">Close</button>
+        </div>
+      </section>
+
+      <section class="mt-20 sm:mt-28 text-center px-2 sm:px-0">
+        <div class="max-w-7xl mx-auto">
+          <div class="badge mb-6">Top Donators</div>
+          <h2
+            class="text-4xl sm:text-5xl font-roboto font-bold text-gray-100 max-w-5xl mx-auto leading-tight section-title"
+          >
+            Our Top Donators, Which Motivate Us To Provide A Lot of Free
+            Features!
+          </h2>
+          <p class="hero-subtitle mt-4 mb-16">
+            Your donations aren't just money — it shows the love and support for
+            Us!
+          </p>
+        </div>
+
+        <div class="scroll-container">
+          <div class="scroll-row scroll-right" id="donatorRow1"></div>
+        </div>
+
+        <div class="scroll-container">
+          <div class="scroll-row scroll-left" id="donatorRow2"></div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="mt-20 py-10 border-t border-gray-800 text-center text-gray-400 text-xs sm:text-sm px-4 sm:px-6 lg:px-8"
+    >
+      <div class="flex flex-col items-center space-y-4">
+        <div
+          class="flex items-center space-x-2 text-green-500 text-base font-bold"
+        >
+          <img
+            src="./assets/safety-icon.webp"
+            alt="Secure2FA Logo"
+            class="logo-img"
+          />
+          <span class="font-semibold text-gray-100 text-base tracking-wide">
+            Secure2FA
+          </span>
+        </div>
+        <nav
+          class="flex flex-wrap justify-center space-x-4 text-gray-400 text-sm"
+        >
+          <a class="hover:text-white" href="#">About Us</a>
+          <a class="hover:text-white" href="#">Pricing</a>
+          <a class="hover:text-white" href="#">BristoHQ</a>
+          <a class="hover:text-white" href="#">Contact Us</a>
+          <a class="hover:text-white" href="#">Blog</a>
+        </nav>
+        <div class="flex space-x-6 text-gray-400 text-lg justify-center">
+          <a aria-label="Instagram" class="hover:text-white" href="#"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a aria-label="Twitter" class="hover:text-white" href="#"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a aria-label="LinkedIn" class="hover:text-white" href="#"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a aria-label="GitHub" class="hover:text-white" href="#"
+            ><i class="fab fa-github"></i
+          ></a>
+        </div>
+        <p class="text-gray-500 text-[11px] mt-3 select-none">
+          © 2025 bristoHQ India, Inc. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Dynamic header background on scroll
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(10, 10, 10, 0.95)";
+          header.style.backdropFilter = "blur(25px)";
+        } else {
+          header.style.background = "rgba(10, 10, 10, 0.8)";
+          header.style.backdropFilter = "blur(20px)";
+        }
+      });
+
+      // Pricing message toggle
+      document.querySelectorAll(".show-pricing-message").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.getElementById("pricingMessage").classList.add("show");
+        });
+      });
+
+      document
+        .getElementById("closePricingMessage")
+        .addEventListener("click", () => {
+          document.getElementById("pricingMessage").classList.remove("show");
+        });
+
+      // Fetch and display donators
+      fetch("./data/data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const donators = data.donators;
+          const row1 = document.getElementById("donatorRow1");
+          const row2 = document.getElementById("donatorRow2");
+
+          // Split donators into two rows
+          const half = Math.ceil(donators.length / 2);
+          const firstRowDonators = donators.slice(0, half);
+          const secondRowDonators = donators.slice(half);
+
+          // Function to create donator card
+          const createDonatorCard = (donator) => `
+            <div class="donator-card p-6">
+              <div class="donator-content">
+                <img
+                  alt="Avatar image of ${donator.name}, a ${donator.title}"
+                  class="avatar"
+                  src="${donator.avatar}"
+                />
+                <div class="donator-quote">
+                  <p class="italic text-sm text-gray-400 max-w-xs text-left">
+                    "${donator.quote}"
+                  </p>
+                  <p class="text-[10px] text-gray-500 mt-2"># ${donator.name}</p>
+                </div>
+              </div>
+              <div class="donator-buttons">
+                <button
+                  class="btn-primary bg-green-500 text-black text-xs font-semibold rounded px-4 py-1"
+                >
+                  ${donator.title}
+                </button>
+                <button
+                  class="btn-primary bg-green-500 text-black text-xs font-semibold rounded px-4 py-1"
+                >
+                  ${donator.linkText}
+                </button>
+              </div>
+            </div>
+          `;
+
+          // Populate first row (scroll right)
+          const row1Content = firstRowDonators.map(createDonatorCard).join("");
+          row1.innerHTML = row1Content + row1Content; // Duplicate for seamless loop
+
+          // Populate second row (scroll left)
+          const row2Content = secondRowDonators.map(createDonatorCard).join("");
+          row2.innerHTML = row2Content + row2Content; // Duplicate for seamless loop
+        })
+        .catch((error) => console.error("Error fetching donators:", error));
+    </script>
+  </body>
+</html>
